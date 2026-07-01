@@ -1,0 +1,48 @@
+questions = ("1.Who is the best player in soccer/football fied?",
+             "2.Who is the goat ?",
+             "3.Who is the best football player in brazil",
+             "4.Who looks like dog?",
+             "5.Who is the most handsome person in the world?")
+options = ("A.Ronaldo B.Messi C.Neymar D.Lamine yamal ",
+           "A.Messi B.Ronaldo C.Mpabe D.Halland ",
+           "A.Neymar B.Ronahdinho C.R9 D.Maradona ",
+           "A.Do Mixi B.Truong Son C.Mixi Gaming D.Phung Thanh Do ",
+           "A.Minh Phu B.Truong Son C.Duc Anh D.Tr.Qu.Anh ")
+answers = ("A","B","A","B","A")
+guesses = []
+score = 0
+question_num = 0
+for question in questions:
+    print("----------------------------------------------")
+    print(question)
+    for option in options[question_num]:
+        print(option, end="")
+    print()
+    guess = input("Enter your answer(A-B-C-D): ").upper()
+    guesses.append(guess)
+    if guess == answers[question_num]:
+        score += 1
+        print("you got it!")
+    else:
+        print("wrong answer")
+        print(f"{answers[question_num]} is the correct answer")
+
+    question_num += 1
+print("----------------------------------------------")
+print("-------------------RESULTS--------------------")
+print("----------------------------------------------")
+print("Waiting...")
+import time
+for x in range(1,4):
+    time.sleep(1)
+    print(x)
+print("answers:",end="")
+for answer in answers:
+    print(answer,end=" ")
+print()
+print("guesses:",end="")
+for guezz in guesses:
+    print(guezz,end=" ")
+print()
+score = int(score/len(questions) * 100)
+print(f"you got {score}% accuracy")

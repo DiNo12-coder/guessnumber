@@ -1,0 +1,52 @@
+#Dino
+foods = []
+prices = []
+total = 0
+print("Welcome to Dino Shopping Cart")
+print("Please login your account before going shopping")
+name = input("Enter your name: ")
+while name == "":
+    print("Your name cant be empty")
+    name = input("Enter your name: ")
+while not name.isalpha():
+    print("your name cant contain numbers or spaces")
+    name = input("Enter your name: ")
+passs = input("Enter your password: ")
+while passs == "":
+    print("your password cant be empty")
+    passs = input("Enter your password: ")
+while not passs.isdigit():
+    print("your password cant contain letters ")
+    passs = input("Enter your password: ")
+import time
+print("wait 3 seconds to log in")
+for y in range(1, 4):
+    print(y)
+    time.sleep(1)
+print(f"login successful")
+print(f"welcome back {name}")
+print("Now you can go shopping")
+while True:
+    food = input("Enter your food ( q to quit): ")
+    while food == "":
+        print("Your food cant be empty")
+        food = input("Enter your food : ")
+    if food.lower() == "q":
+        break
+    else :
+        foods.append(food)
+    price = float(input(f"Enter your price of a {food}:$ "))
+    while price <= 0 :
+        print("Your price cant be negative")
+        price = float(input(f"Enter your price of a {food}:$ "))
+    prices.append(price)
+    total += price
+print("Wait seconds to caculate")
+for x in range(1,4):
+    time.sleep(1)
+    print(x)
+print("---YOUR SHOPPING CART---")
+for food in foods:
+    print(food , end = ",")
+print()
+print(f"your shopping cart contains : {foods} with ${prices} respectively  and you need to pay off ${total}")

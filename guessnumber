@@ -1,0 +1,38 @@
+#Dino
+import random
+print("WELCOME TO GUESS NUMBER GAME!!!")
+lowest_num = 1
+hightest_num = 100
+random_num = random.randint(lowest_num, hightest_num)
+guess = 0
+is_running = True
+X = ("OUR RULE: ",
+      "1.YOU WILL WIN WHEN YOU CAN GUESS THE NUMBER IN 8 TIMES TRY",
+      "2.NUMBERS MUST BE SELECTED FROM 1 TO 100",
+      "3. YOU CAN'T ENTER LETTERS AND OTHERS ")
+for x in X:
+    print(x)
+
+while is_running:
+    answer = input("Enter your number: ")
+    if answer.isdigit():
+        answer = int(answer)
+        guess += 1
+        if answer < lowest_num or answer > hightest_num:
+            print("Your number must be from 1 to 100")
+        elif answer > random_num:
+            print("TOO HIGH!!")
+        elif answer < random_num:
+            print("TOO LOW!!")
+        else:
+            print("CORRECT!!!!")
+            print(f"the answer is {random_num}")
+            print(f"Your guess times is {guess}")
+            if guess > 8 :
+                print("You lost =(( ")
+                is_running = False
+            else:
+                print("You won!!")
+                is_running = False
+    else:
+        print("Invalid Input")

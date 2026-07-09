@@ -1,0 +1,17 @@
+#Dino
+import random
+import string
+chars = " " + string.punctuation + string.digits + string.ascii_letters
+chars = list(chars)
+key = chars.copy()
+random.shuffle(key)
+print(f"chars: {chars}")
+print(f"key: {key}")
+#Encrypt
+cypher = input("Enter your message: ")
+real = ""
+for x in cypher:
+    index = key.index(x)
+    real += chars[index]
+print(f"encrypted message: {real}")
+print(f"real message: {cypher}")
